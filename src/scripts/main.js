@@ -360,17 +360,21 @@ console.log(people); // you can remove it
 const table = document.querySelector('.dashboard');
 
 const rowsHtml = people
-  .map(
-    (p) => `<tr>
+  .map((p) => {
+    const gender = p.sex === 'f' ? 'Female' : 'Male';
+    const century = Math.ceil(p.died / 100);
+    const age = p.died - p.born;
+
+    return `<tr>
               <td>${p.name}</td>
-              <td>${p.sex}</td>
+              <td>${gender}</td>
               <td>${p.born}</td>
               <td>${p.died}</td>
-              <td>${p.died - p.born}</td>
-              <td>${Math.ceil(p.died / 100)}</td>
+              <td>${age}</td>
+              <td>${century}</td>
               </tr>
-    `,
-  )
+    `;
+  })
   .join('');
 
 table.insertAdjacentHTML('beforeend', rowsHtml);
