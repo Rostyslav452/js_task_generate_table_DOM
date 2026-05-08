@@ -357,4 +357,20 @@ const people = [
 // eslint-disable-next-line no-console
 console.log(people); // you can remove it
 
-// write your code here
+const table = document.querySelector('.dashboard');
+
+const rowsHtml = people
+  .map(
+    (p) => `<tr>
+              <td>${p.name}</td>
+              <td>${p.sex}</td>
+              <td>${p.born}</td>
+              <td>${p.died}</td>
+              <td>${p.died - p.born}</td>
+              <td>${Math.ceil(p.born / 100)}</td>
+              </tr>
+    `,
+  )
+  .join('');
+
+table.insertAdjacentHTML('beforeend', rowsHtml);
