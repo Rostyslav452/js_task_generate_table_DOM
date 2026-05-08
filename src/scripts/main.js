@@ -367,7 +367,7 @@ const rowsHtml = people
               <td>${p.born}</td>
               <td>${p.died}</td>
               <td>${p.died - p.born}</td>
-              <td>${Math.ceil(p.born / 100)}</td>
+              <td>${Math.ceil(p.died / 100)}</td>
               </tr>
     `,
   )
